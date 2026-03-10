@@ -1,0 +1,19 @@
+# Конфигурация для развёртывания на Amvera
+
+environment: python:3.11
+
+mount:
+  - data:/data
+
+env:
+  TELEGRAM_TOKEN: ${TELEGRAM_TOKEN}
+  ADMIN_ID: ${ADMIN_ID}
+
+command: python3 botes.py
+
+build:
+  - pip install -r requirements.txt
+
+ports:
+  - port: 8000
+    serviceName: bot-api
